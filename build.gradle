@@ -1,0 +1,23 @@
+group 'com.github'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'scala'
+
+ScalaCompileOptions.metaClass.daemonServer = true
+ScalaCompileOptions.metaClass.fork = true
+ScalaCompileOptions.metaClass.useAnt = false
+ScalaCompileOptions.metaClass.useCompileDaemon = false
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library-all:2.12.1"
+    compile 'com.typesafe.akka:akka-http_2.12:10.0.0'
+    compile 'com.typesafe.akka:akka-http-jackson_2.12:10.0.0'
+    compile 'com.typesafe.akka:akka-http-spray-json_2.12:10.0.0'
+    //"de.heikoseeberger" %% "akka-sse" % "1.11.0"
+    compile 'de.heikoseeberger:akka-sse_2.12:2+'
+    compile 'ch.megard:akka-http-cors_2.12:0.1+'
+}
